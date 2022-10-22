@@ -4,6 +4,7 @@ import io.github.marianotangari.enums.Alignment;
 import io.github.marianotangari.enums.FieldType;
 
 public final class FixedField {
+
     private int ordinal;
     private String fieldValue;
     private FieldType type;
@@ -67,5 +68,4 @@ public final class FixedField {
         return String.format("ordinal = %d, fieldValue = %s, fieldLength = %d, type = %s, alignment = %s, padding = %c",
                 ordinal, fieldValue, fieldLength, type.name(), alignment.name(), padding);
     }
-
 }

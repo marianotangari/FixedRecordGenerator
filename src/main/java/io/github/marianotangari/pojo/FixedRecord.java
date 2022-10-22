@@ -10,8 +10,11 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class FixedRecord {
+
     private final List<FixedField> values;
+
     public static <T> FixedRecord of(T o) {
+
         return new FixedRecord(generateFixedFields(o));
     }
 
@@ -34,6 +37,7 @@ public class FixedRecord {
     public String getRecord() {
         return values.stream().map(FixedField::build).collect(Collectors.joining());
     }
+
     private static <T> List<FixedField> getSortedAnnotatedFields(T o) {
 
         return Arrays.stream(o.getClass().getDeclaredFields())
