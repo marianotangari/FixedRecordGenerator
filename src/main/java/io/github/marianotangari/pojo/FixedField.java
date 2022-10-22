@@ -16,6 +16,8 @@ public final class FixedField {
         return ordinal;
     }
 
+    FixedField () {}
+
     FixedField withOrdinal(int ordinal){
         this.ordinal = ordinal;
         return this;
