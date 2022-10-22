@@ -2,6 +2,7 @@ package io.github.marianotangari.pojo;
 
 import io.github.marianotangari.annotations.Field;
 import io.github.marianotangari.annotations.Record;
+import io.github.marianotangari.enums.ValidClassesEnum;
 import io.github.marianotangari.exception.RecordAnnotationNotFound;
 
 import java.util.Comparator;
@@ -51,7 +52,8 @@ public class FixedRecord {
 
         field.setAccessible(true);
 
-        boolean isValidClass = field.getType() == String.class || field.getType() == Number.class || field.getType().isPrimitive();
+        boolean isValidClass = Arrays.stream(ValidClassesEnum.values()).anyMatch(i -> i.getValidClass() == (field.getType()))
+                || field.getType().isPrimitive();
 
         if (isValidClass) {
             try {
