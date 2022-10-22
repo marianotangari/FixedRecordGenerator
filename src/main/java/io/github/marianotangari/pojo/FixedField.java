@@ -52,17 +52,14 @@ public final class FixedField {
     }
     
     private String buildFixedPatternField() {
-        return fieldValue.repeat(fieldLength / fieldValue.length())
-                + fieldValue.substring(0, fieldLength % fieldValue.length());
+        return fieldValue.repeat(fieldLength / fieldValue.length()) + fieldValue.substring(0, fieldLength % fieldValue.length());
     }
     
     private String buildFixedLengthField() {
         
         int paddingLength = fieldLength - fieldValue.length();
 
-        return alignment == Alignment.RIGHT ?
-                String.valueOf(padding).repeat(paddingLength) + fieldValue :
-                fieldValue + String.valueOf(padding).repeat(paddingLength);
+        return alignment == Alignment.RIGHT ? String.valueOf(padding).repeat(paddingLength) + fieldValue : fieldValue + String.valueOf(padding).repeat(paddingLength);
     }
 
     @Override
