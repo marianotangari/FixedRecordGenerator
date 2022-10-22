@@ -57,7 +57,9 @@ public final class FixedField {
     
     private String buildFixedLengthField() {
         
-        int paddingLength = fieldLength - fieldValue.length();
+        int paddingLength = Math.max(fieldLength - fieldValue.length(), 0);
+
+        fieldValue = paddingLength == 0 ? fieldValue.substring(0, fieldLength) : fieldValue;
 
         return alignment == Alignment.RIGHT ? String.valueOf(padding).repeat(paddingLength) + fieldValue : fieldValue + String.valueOf(padding).repeat(paddingLength);
     }
