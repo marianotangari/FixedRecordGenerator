@@ -1,7 +1,7 @@
 package io.github.marianotangari;
 
-import io.github.marianotangari.pojo.Example;
-import io.github.marianotangari.pojo.FixedRecord;
+import io.github.marianotangari.record.Example;
+import io.github.marianotangari.record.FixedRecord;
 
 import java.time.LocalDate;
 
@@ -15,6 +15,6 @@ public class App
 
         System.out.println(fixedRecord.getRecord());
 
-        System.out.println(fixedRecord.getFields());
+       // System.out.println(fixedRecord.getFields());
     }
 }

@@ -1,4 +1,4 @@
-package io.github.marianotangari.pojo;
+package io.github.marianotangari.record;
 
 import io.github.marianotangari.enums.Alignment;
 import io.github.marianotangari.enums.FieldType;

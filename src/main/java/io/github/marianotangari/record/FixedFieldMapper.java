@@ -1,4 +1,4 @@
-package io.github.marianotangari.pojo;
+package io.github.marianotangari.record;
 
 import io.github.marianotangari.annotations.Field;
 
