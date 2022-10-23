@@ -47,6 +47,26 @@ public final class FixedField {
         return this;
     }
 
+    public String getFieldValue() {
+        return fieldValue;
+    }
+
+    public FieldType getType() {
+        return type;
+    }
+
+    public int getFieldLength() {
+        return fieldLength;
+    }
+
+    public Alignment getAlignment() {
+        return alignment;
+    }
+
+    public char getPadding() {
+        return padding;
+    }
+
     public String build() {
         return type == FieldType.FIXED_PATTERN ? buildFixedPatternField() : buildFixedLengthField();
     }
