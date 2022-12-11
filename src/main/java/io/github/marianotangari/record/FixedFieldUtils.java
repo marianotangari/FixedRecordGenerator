@@ -4,7 +4,6 @@ import io.github.marianotangari.annotations.Field;
 import io.github.marianotangari.enums.ValidClassesEnum;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,7 +29,7 @@ public class FixedFieldUtils {
         return Arrays.stream(o.getClass().getDeclaredFields())
                 .filter(field -> field.isAnnotationPresent(Field.class))
                 .map(field -> mapFieldToFixedField(getFieldValue(o, field), field.getAnnotation(Field.class)))
-                .sorted(Comparator.comparing(FixedField::getOrdinal))
+                .sorted()
                 .collect(Collectors.toList());
     }
 
@@ -38,7 +37,7 @@ public class FixedFieldUtils {
 
         field.setAccessible(true);
 
-        boolean isValidClass = isValidClass(field)|| field.getType().isPrimitive();
+        boolean isValidClass = isValidClass(field) || field.getType().isPrimitive();
 
         if (isValidClass) {
             try {

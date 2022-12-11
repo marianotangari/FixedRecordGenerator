@@ -3,7 +3,7 @@ package io.github.marianotangari.record;
 import io.github.marianotangari.enums.Alignment;
 import io.github.marianotangari.enums.FieldType;
 
-public final class FixedField {
+public final class FixedField implements Comparable<FixedField>{
 
     private int ordinal;
     private String fieldValue;
@@ -81,12 +81,19 @@ public final class FixedField {
 
         fieldValue = paddingLength == 0 ? fieldValue.substring(0, fieldLength) : fieldValue;
 
-        return alignment == Alignment.RIGHT ? String.valueOf(padding).repeat(paddingLength) + fieldValue : fieldValue + String.valueOf(padding).repeat(paddingLength);
+        return alignment == Alignment.RIGHT ?
+                String.valueOf(padding).repeat(paddingLength) + fieldValue :
+                fieldValue + String.valueOf(padding).repeat(paddingLength);
     }
 
     @Override
     public String toString() {
         return String.format("ordinal = %d, fieldValue = %s, fieldLength = %d, type = %s, alignment = %s, padding = %c",
                 ordinal, fieldValue, fieldLength, type.name(), alignment.name(), padding);
+    }
+
+    @Override
+    public int compareTo(FixedField o) {
+        return Integer.compare(this.getOrdinal(), o.getOrdinal());
     }
 }
